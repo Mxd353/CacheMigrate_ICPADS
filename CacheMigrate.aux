@@ -1,0 +1,156 @@
+\relax 
+\citation{anwar2020customizable,wang2017metakv,8932384}
+\citation{decandia2007dynamo,nishtala2013scaling,10204945}
+\citation{hong2013understanding,dean2013tail,10758435,10830580}
+\citation{fan2011small}
+\citation{jin2017netcache}
+\citation{liu2019distcache}
+\citation{kang2022remus}
+\citation{kulkarni2017rocksteady}
+\citation{kokkinos2016survey,lin2019mgcrab}
+\citation{afonso2020combining}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\citation{fan2011small}
+\citation{atikoglu2012workload}
+\citation{jin2017netcache}
+\citation{medeiros2020survey}
+\citation{kulkarni2017rocksteady,katsarakis2021zeus}
+\citation{vasilakis2020hybrid2,young2019tictoc}
+\citation{decandia2007dynamo}
+\citation{bachar2023optimizing,duraisamy2023towards}
+\citation{shen2010request}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background \& Motivation}{2}{}\protected@file@percent }
+\newlabel{sec_back_ground}{{II}{2}{}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Caching \& Migration Strategies}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Load Balancing in Multi-cluster Storage}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}CacheMigrate Design}{2}{}\protected@file@percent }
+\newlabel{sec:Design}{{III}{2}{}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}System Architecture}{2}{}\protected@file@percent }
+\newlabel{subsec:system-architecture}{{\mbox  {III-A}}{2}{}{subsection.3.1}{}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:architecture}{{1a}{3}{}{subfigure.1.1}{}}
+\newlabel{sub@fig:architecture}{{(a)}{a}}
+\newlabel{fig:Protocol}{{1b}{3}{}{subfigure.1.2}{}}
+\newlabel{sub@fig:Protocol}{{(b)}{b}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces System Architecture.}}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Per Cluster Architecture.}}}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {CacheMigrate Network Protocol.}}}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-A}0a}ToR switch}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-A}0b}Spine switch}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-A}0c}Controller}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-A}0d}Servers \& clients}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Challenges and Goals}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-B}1}Decentralizing migration control}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-B}2}Service disruption during migration}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-B}3}Data consistency}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Migration Flow.}}{4}{}\protected@file@percent }
+\newlabel{fig:migration_flow}{{2}{4}{}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Overview of Migration Workflow}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Migration State Management}{4}{}\protected@file@percent }
+\newlabel{subsec:load_manager}{{\mbox  {III-D}1}{4}{}{subsubsection.3.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-D}1}Load manager}{4}{}\protected@file@percent }
+\newlabel{eq:load_index}{{3}{4}{}{equation.3}{}}
+\newlabel{subsec:write_tracking}{{\mbox  {III-D}2}{4}{}{subsubsection.3.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-D}2}Write-Tracking filter}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-D}3}Distributed state management}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Query Handling During Migration}{5}{}\protected@file@percent }
+\newlabel{subsec:QueryHandling}{{\mbox  {III-E}}{5}{}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-E}0a}Read requests}{5}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Query Handling During Migration}}{5}{}\protected@file@percent }
+\newlabel{alg:query_handling}{{1}{5}{}{algorithm.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-E}0b}Write requests}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Cache Consistency During Migration}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-F}0a}RAW}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-F}0b}WAW}{5}{}\protected@file@percent }
+\citation{dpdkDPDKx2013}
+\citation{tofino}
+\citation{githubGitHubAmadvancetommyds}
+\citation{cooper2010benchmarking}
+\citation{liu2019distcache}
+\citation{jin2017netcache}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiments \& Evaluation}{6}{}\protected@file@percent }
+\newlabel{sec:Experimental}{{IV}{6}{}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Experimental Setup}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Baselines}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Results \& Analysis}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}1}Throughput with different key access distributions}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}2}Latency}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}3}Imbalance}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}4}Impact of cache size}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}5}Impact of writ ratio}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}6}Scalability}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}7}Impact of migrateion size}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}8}Hardware resources}{6}{}\protected@file@percent }
+\citation{memcachedMemcachedDistributed}
+\citation{redisRedisRealtime}
+\citation{ghemawat2003google,beaver2010finding}
+\citation{opennetworkingOpenNetworking}
+\citation{tofino}
+\newlabel{fig:Throughput_with_different_skewness}{{3a}{7}{}{subfigure.3.1}{}}
+\newlabel{sub@fig:Throughput_with_different_skewness}{{(a)}{a}}
+\newlabel{fig:Latency}{{3b}{7}{}{subfigure.3.2}{}}
+\newlabel{sub@fig:Latency}{{(b)}{b}}
+\newlabel{fig:Imbalance}{{3c}{7}{}{subfigure.3.3}{}}
+\newlabel{sub@fig:Imbalance}{{(c)}{c}}
+\newlabel{fig:Impact_of_cache_size}{{3d}{7}{}{subfigure.3.4}{}}
+\newlabel{sub@fig:Impact_of_cache_size}{{(d)}{d}}
+\newlabel{fig:Impact_of_write_ratio}{{3e}{7}{}{subfigure.3.5}{}}
+\newlabel{sub@fig:Impact_of_write_ratio}{{(e)}{e}}
+\newlabel{fig:Scalability}{{3f}{7}{}{subfigure.3.6}{}}
+\newlabel{sub@fig:Scalability}{{(f)}{f}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces System Performance.}}{7}{}\protected@file@percent }
+\newlabel{fig:System_Performance}{{3}{7}{}{figure.3}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Throughput With Different Skewness.}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Latency}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Imbalance}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Impact of Cache Size.}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Impact of Write Ratio.}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {Scalability}}}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Impact of Migration Size}}{7}{}\protected@file@percent }
+\newlabel{fig:Impact_of_migrateion_size}{{4}{7}{}{figure.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Hardware Resource Usage Summary}}{7}{}\protected@file@percent }
+\newlabel{tab:resource_summary}{{I}{7}{}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-C}9}Protocol efficiency}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Related Work}{7}{}\protected@file@percent }
+\newlabel{sec:related_work}{{V}{7}{}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{7}{}\protected@file@percent }
+\newlabel{sec:Conclusion}{{VI}{7}{}{section.6}{}}
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{anwar2020customizable}{1}
+\bibcite{wang2017metakv}{2}
+\bibcite{8932384}{3}
+\bibcite{decandia2007dynamo}{4}
+\bibcite{nishtala2013scaling}{5}
+\bibcite{10204945}{6}
+\bibcite{hong2013understanding}{7}
+\bibcite{dean2013tail}{8}
+\bibcite{10758435}{9}
+\bibcite{10830580}{10}
+\bibcite{fan2011small}{11}
+\bibcite{jin2017netcache}{12}
+\bibcite{liu2019distcache}{13}
+\bibcite{kang2022remus}{14}
+\bibcite{kulkarni2017rocksteady}{15}
+\bibcite{kokkinos2016survey}{16}
+\bibcite{lin2019mgcrab}{17}
+\bibcite{afonso2020combining}{18}
+\bibcite{atikoglu2012workload}{19}
+\bibcite{medeiros2020survey}{20}
+\bibcite{katsarakis2021zeus}{21}
+\bibcite{vasilakis2020hybrid2}{22}
+\bibcite{young2019tictoc}{23}
+\bibcite{bachar2023optimizing}{24}
+\bibcite{duraisamy2023towards}{25}
+\bibcite{shen2010request}{26}
+\bibcite{dpdkDPDKx2013}{27}
+\bibcite{tofino}{28}
+\bibcite{githubGitHubAmadvancetommyds}{29}
+\bibcite{cooper2010benchmarking}{30}
+\bibcite{memcachedMemcachedDistributed}{31}
+\bibcite{redisRedisRealtime}{32}
+\bibcite{ghemawat2003google}{33}
+\bibcite{beaver2010finding}{34}
+\bibcite{opennetworkingOpenNetworking}{35}
+\@writefile{toc}{\contentsline {section}{References}{8}{}\protected@file@percent }
+\gdef \@abspage@last{8}

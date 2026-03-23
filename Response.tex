@@ -1,0 +1,249 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{lipsum} % to generate some filler text
+\usepackage{fullpage}
+\usepackage{mathrsfs}
+\usepackage{svg}
+\usepackage{xr}
+\usepackage{amsthm,cite,url,graphicx,booktabs,lipsum,color,bm,caption,subcaption,soul}
+\usepackage{pifont,tikz,paralist,multirow,amssymb}
+\usepackage{xifthen}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{color,soul}
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=lime,
+    filecolor=magenta,
+    urlcolor=cyan,
+    }
+%\usepackage{url}
+% This refines the format of how the reviewer/point reference will appear.
+%\renewcommand{\thepoint}{C\,\thereviewer.\arabic{point}}
+
+\renewcommand{\thepoint}{Comment\,\thereviewer.\arabic{point}}
+
+% command declarations for reviewer points and our responses
+
+\newenvironment{point1}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Associate Editor's Comment~}} ---\ }
+   {\par }
+
+\newcommand{\reviewersection}[1]{
+    \bigskip
+    \hrule
+    \section*{#1}
+}
+% \newenvironment{point}
+
+%    {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~\thepoint} } ---\ }
+%    {\par }
+
+\newenvironment{point}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~\thepoint} } ---\ }
+   {\par }
+
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}   \bigskip \noindent
+	{\textbf{Reviewer~Point~\thepoint} } ---~#1  }
+
+\newenvironment{reply}
+   {\medskip \noindent \color{blue} \begin{sf}\\ \textbf{Response}:\\  }
+   {\medskip \par \end{sf}}
+
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Response}:\  #2
+	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+	\medskip \end{sf}}
+
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+
+\newcommand{\comment}[1]{\textcolor{purple}{\textbf{\underline{Comment #1:}}}\\}
+\DeclareRobustCommand{\thanksfor}[1]{Thank you so much for #1}
+
+\newcommand{\hint}[1]{\textcolor{orange}{\\ \textbf{\underline{This part need to reply later......}}}\\}
+% for cross-referencing..
+\myexternaldocument{main}
+\myexternaldocument{Supplemental}
+%\externaldocument[I-]{main}
+
+
+\def\thesubsubsection{\arabic{subsubsection}}
+\titleformat{\subsubsection}[runin]
+{\normalfont\bfseries}
+{\indent\thesubsubsection)}{0.5em}{}
+
+\DeclareRobustCommand{\hlRevA}[1]{{\sethlcolor{yellow}\hl{#1}}}% yellow
+\DeclareRobustCommand{\hlRevB}[1]{{\sethlcolor{pink}\hl{#1}}}% pink
+\DeclareRobustCommand{\hlRevC}[1]{{\sethlcolor{orange}\hl{#1}}}% orange
+\DeclareRobustCommand{\hlAdmin}[1]{{\sethlcolor{lime}\hl{#1}}}% lime
+\DeclareRobustCommand{\hlme}[1]{{\sethlcolor{cyan}\hl{#1}}}
+
+\begin{document}
+\section*{Notes on revision made to manuscript Paper \#380}
+\vspace{10pt}
+
+Dear Chairs,
+
+Thank you very much for giving us the opportunity to respond to the referees' comments and improve the quality of our manuscript. We would like to submit the revised version of our manuscript. We appreciate the constructive comments of the reviewers and found them very helpful in improving the quality of our manuscript. It is worth noting that we have considered all the comments of the referees and made the corresponding amendments, as well as some additional improvements and clarifications in the manuscript on our own initiative. We hope that these amendments have addressed the comments to the satisfaction of the reviewers. For the reviewers' convenience, we have addressed all their comments in our response as shown below.
+
+Thank you very much.
+
+\noindent Ammar Hawbani
+
+\section*{Response to the reviewers}
+%\colorbox{yellow}{don't use different colors here for the reviewers in the response}.
+
+%\colorbox{orange}{u can highlight the revision in the paper by different colors for each reviewrs, you can use colorebox}
+%\colorbox{pink}{Bullet point 2 is yellow that means i am currently working on that revision point}
+
+\textbf{\sethlcolor{yellow}\hl{Review \#380A}}
+\textbf{\sethlcolor{pink}\hl{Review \#380B}}
+\textbf{\sethlcolor{orange}\hl{Review \#380C}}
+\textbf{\sethlcolor{lime}\hl{Administrator}}
+\textbf{\sethlcolor{cyan}\hl{Otherwise}}
+
+% \textbf{\sethlcolor{cyan}\hl{Reviewer 4}}
+% \textbf{\sethlcolor{green}\hl{Reviewer 5}}
+% \textbf{\sethlcolor{orange}\hl{Other Revisions}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%rev 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\reviewersection{Review \#380A}
+%Reviewer: 2
+%Recommendation: Needs Minor Revision
+%\textcolor{red}{\textbf{Comments:}}
+\textbf{This paper presents CacheMigrate, a system that leverages the data plane of programmable switches to perform real-time hotspot detection, track per-key migration state with a write-tracking Bloom filter, and coordinate a distributed migration process—decoupling data movement from request handling via in-network caching to enable seamless, strongly-consistent live migration for load balancing in distributed key-value stores.}
+
+\begin{reply}
+    Thank you very much for your constructive comments and detailed feedback on our manuscript. Your suggestions have greatly helped us improve the clarity and completeness of our work. We have made corresponding modifications based on your previous remarks. In addition, we provide detailed responses to each concern you raised. Please refer to the \hlRevA{yellow-highlighted} sections in the revised manuscript and see our response to the specific issue you are interested in:
+\end{reply}
+
+\begin{enumerate}
+    \item \comment{1} The most significant omission is the lack of energy consumption analysis. The paper fails to evaluate the power overhead introduced by migration operations, additional packet processing, and Bloom Filter queries. This is a critical oversight for a work that emphasizes "efficiency" and relies on hardware implementations.
+          \begin{reply}
+              We thank the reviewer for pointing out the importance of evaluating energy consumption. Due to the limited page budget of the conference, we are unable to include detailed measurements of the power overhead caused by migration operations, additional packet processing, and Bloom Filter queries in the current manuscript. We acknowledge that analyzing energy efficiency is valuable, and we have already highlighted this direction for future work in Section VI (Conclusion, page 8).
+          \end{reply}
+
+    \item \comment{2} Furthermore, the evaluation does not include metrics on Tail Latency, which is a more crucial indicator than average latency when discussing load balancing performance.
+          \begin{reply}
+              \thanksfor{your comments}. We have added a P99 Tail Latency evaluation in Section IV.C (Results \& Analysis, page 6). The experiment measures the 99th-percentile latency under various workload conditions. The results show that CacheMigrate maintains P99 latency comparable to baseline schemes, demonstrating that it effectively balances load across racks without introducing additional high-percentile delays. This confirms that proactive cache migration can improve throughput and load distribution while preserving predictable performance for nearly all requests.
+          \end{reply}
+
+    \item \comment{3} The paper also does not test fault recovery scenarios, such as node or switch failures during migration, which raises concerns about the system's robustness and reliability.
+          \begin{reply}
+              \thanksfor{your comments}. We appreciate the reviewer's concern regarding fault recovery during migration. While our current evaluation focuses on performance under normal conditions, CacheMigrate is designed with system robustness in mind. In our design, the completion of each migration is determined by the destination node, and during the migration process, all requests continue to be served by the source node. This ensures that transient node or switch failures do not affect ongoing service or consistency. Due to the limited page budget of the conference, we are unable to include extensive fault-recovery experiments in the current manuscript, as highlighted in Section VI (Conclusion, pages 7-8).
+          \end{reply}
+\end{enumerate}
+
+%________________________________\______\______\_________\_______\\
+\reviewersection{Review \#380B}
+%Reviewer: 3
+%Recommendation: Needs Major Revision
+%\textcolor{red}{\textbf{Comments:}}
+\textbf{The paper presents CacheMigrate, a switch-assisted caching and migration framework for distributed key-value (KV) storage systems. CacheMigrate aims to provide efficient load balancing with minimal disruption and strong consistency.}
+
+\begin{reply}
+    Thank you very much for your constructive comments and detailed feedback on our manuscript. Your suggestions have greatly helped us improve the clarity and completeness of our work. We have made corresponding modifications based on your previous remarks. In addition, we provide detailed responses to each concern you raised. Please refer to the \hlRevB{pink-highlighted} sections in the revised manuscript and see our response to the specific issue you are interested in:
+\end{reply}
+
+\begin{enumerate}
+    \item \comment{1} The conclusion briefly hints at extending in-network logic but does not discuss security, fault tolerance.
+          \begin{reply}
+              \thanksfor{your comments}. We appreciate the reviewer's concern regarding fault recovery during migration. While our current evaluation focuses on performance under normal conditions, CacheMigrate is designed with system robustness in mind. In our design, the completion of each migration is determined by the destination node, and during the migration process, all requests continue to be served by the source node. This ensures that transient node or switch failures do not affect ongoing service or consistency. Due to the limited page budget of the conference, we are unable to include extensive fault-recovery experiments in the current manuscript, however, we have already highlighted this direction for future work in Section VI (Conclusion, page 7-8).
+          \end{reply}
+\end{enumerate}
+
+
+\reviewersection{Review \#380C}
+%Reviewer: 2
+%Recommendation: Needs Minor Revision
+%\textcolor{red}{\textbf{Comments:}}
+\textbf{This paper presents CacheMigrate, a switch-assisted caching and migration framework designed to improve load balancing in distributed key-value storage systems. The system leverages programmable Top-of-Rack (ToR) switches for real-time hotspot detection, in-network caching, and per-key migration tracking. It aims to decouple data movement from request handling and ensure consistency during live migration. The authors implement a prototype on a P4-programmable switch and evaluate it against state-of-the-art solutions such as NetCache and DistCache.}
+
+\begin{reply}
+    We sincerely thank the reviewer for the constructive comments and detailed feedback on our manuscript. Your suggestions have helped us significantly improve the clarity and quality of our work. We have incorporated the corresponding modifications in the revised manuscript; please refer to the \hlRevC{orange-highlighted} sections for the updates. In addition, we provide detailed responses to each of the issues you raised. Please see our response regarding the specific point of your interest:
+\end{reply}
+
+\begin{enumerate}
+    \item \comment{1} Throughput improvement is modest and lacks detailed analysis. Although CacheMigrate shows higher throughput than baselines, the improvements are relatively small, and the paper does not present percentage-based gains or deeper metrics such as tail latency or load imbalance reduction. It is unclear whether the proposed approach provides sufficient performance benefits to justify the added complexity.
+          \begin{reply}
+              \thanksfor{your comments}. We have expanded the evaluation of CacheMigrate's performance in Section IV.C (Results \& Analysis, page 6) to address your concerns regarding throughput improvements and detailed performance analysis. Specifically, we have added:
+
+              \begin{itemize}
+                  \item A P99 Tail Latency evaluation, which measures the 99th-percentile latency under various workload conditions. The results show that CacheMigrate maintains P99 latency comparable to other baseline schemes, indicating that it effectively balances load across racks without introducing additional high-percentile delays. This demonstrates that proactive cache migration improves throughput and load distribution while preserving predictable performance for nearly all requests.
+
+                  \item A dedicated Imbalance analysis. In this experiment, we compute a load index for each rack based on recent traffic statistics and observed trends, and define the Imbalance Ratio as the maximum rack load divided by the average load across all racks. This analysis quantifies how evenly the workload is distributed under different traffic patterns. The results show that CacheMigrate consistently achieves lower imbalance compared to baseline schemes, demonstrating its effectiveness in mitigating hotspots and improving overall throughput.
+              \end{itemize}
+
+              By including these evaluations, we provide a more comprehensive understanding of CacheMigrate's performance, highlighting both its ability to improve throughput and its advantages in load balancing and latency preservation.
+          \end{reply}
+
+    \item \comment{2} Experimental scale is too limited to validate the approach. The evaluation emulates 32 racks on a single physical machine. While this setup allows functional testing, it is far from representative of real large-scale deployments. As a result, it is unclear how CacheMigrate behaves under realistic data sizes, larger cluster scales, or when switch cache becomes insufficient to store even a small fraction of hot keys — a scenario highly likely in production. The paper does not discuss fallback strategies or performance degradation under such conditions.
+          \begin{reply}
+              \thanksfor{your comments}. We have added a Scalability experiment in Section IV.C (Results \& Analysis, page 6) to evaluate CacheMigrate's performance under increasing system scale. This experiment studies how throughput changes as the number of racks or switch cache entries increases. The results show that CacheMigrate maintains near-linear scalability in throughput and continues to outperform baseline schemes, highlighting the system's ability to handle larger deployments.
+          \end{reply}
+
+    \item \comment{3} Key parameter tuning is unexplored.
+          The load index \( L \) plays a critical role in migration decisions, but there is no analysis or discussion of how $\alpha$ and $\alpha$ should be chosen. Without sensitivity analysis, it is difficult to evaluate the robustness of the design or reproduce its results in different environments.
+          \begin{reply}
+              \thanksfor{your comments}. The parameters $\alpha$ and $\beta$ in the load index are preconfigured based on empirical observations to balance responsiveness and stability under varying load dynamics. The current system uses preset values that effectively capture instantaneous and trend-based load characteristics in our experimental workloads. Due to space limitations, we did not include a detailed sensitivity analysis in this version. We plan to explore adaptive parameter tuning in future work, allowing the system to automatically adjust $\alpha$ and $\beta$ according to real-time workload variations for improved robustness and generality.
+          \end{reply}
+\end{enumerate}
+
+\reviewersection{Administrator}
+%Reviewer: `
+%Recommendation: Needs Minor Revision
+\textbf{This paper presents CacheMigrate, a switch-assisted caching and migration framework designed to improve load balancing in distributed key-value storage systems. Despite the paper's meaningful contribution to the field, the paper has several issues.}
+
+\begin{reply}
+    Thank you very much for your recognition of our research work and constructive comments. Your feedback has significantly improved the quality of our paper. We have made the corresponding modifications according to your valuable comments. Please refer to the \hlAdmin{lime-highlighted} parts in the revised manuscript. Please find below our responses to your concerns:
+\end{reply}
+
+\begin{enumerate}
+    \item \comment{1} Lack of energy consumption analysis. The paper fails to evaluate the power overhead introduced by migration operations, additional packet processing, and Bloom Filter queries.
+          \begin{reply}
+              We thank the reviewer for the suggestion to analyze energy consumption. Due to the limited page budget, we are unable to include detailed power measurements in the current manuscript. We recognize that quantifying the overhead of migration operations, additional packet processing, and Bloom Filter queries is important for fully understanding the efficiency of CacheMigrate. While a comprehensive evaluation of energy consumption is beyond the scope of this paper, we outline our plans to address this in future work, as highlighted in Section VI (Conclusion, page 8), where we discuss extending the system to include additional performance and efficiency analyses.
+
+          \end{reply}
+
+    \item \comment{2} Throughput improvement is modest and lacks detailed analysis. Although CacheMigrate shows higher throughput than baselines, the improvements are relatively small.
+          \begin{reply}
+              \thanksfor{your comments}. We have expanded the evaluation of CacheMigrate's performance in Section IV.C (Results \& Analysis, page 6) by adding a dedicated Imbalance analysis. In this experiment, we compute a load index for each rack based on the combination of recent traffic statistics and observed trends, and define the Imbalance Ratio as the maximum rack load divided by the average load across all racks. This analysis allows us to quantify how evenly the workload is distributed under different traffic patterns. The results show that CacheMigrate achieves consistently lower imbalance compared to baseline schemes, demonstrating its effectiveness in mitigating hotspots and improving overall throughput. By including this study, we provide a more detailed understanding of the system's performance and highlight the advantages of proactive cache migration for load balancing.
+          \end{reply}
+
+    \item \comment{3} The evaluation does not include metrics on Tail Latency, which is a more crucial indicator than average latency when discussing load balancing performance.
+          \begin{reply}
+              \thanksfor{your comments}. We have added a P99 Tail Latency evaluation in Section IV.C (Results \& Analysis, page 6). The experiment measures the 99th-percentile latency under various workload conditions. The results show that CacheMigrate maintains P99 latency comparable to other baseline schemes, indicating that it can effectively balance load across racks without introducing additional high-percentile delays. This demonstrates that proactive cache migration improves throughput and load distribution while preserving predictable performance for nearly all requests.
+          \end{reply}
+
+    \item \comment{4} The result in Figure 4 is simple. It is recommended to provide more experimental details/setups to enhance the richness and reliability of the results.
+          \begin{reply}
+              \thanksfor{your comments}. We have added a new paragraph in Section IV.C (Results \& Analysis, page 6) to evaluate the impact of migration size on system throughput.
+              \begin{itemize}
+                  \item In this experiment, we vary the ratio of migrated data to the total switch cache capacity, allowing us to study how different migration scales affect overall system performance.
+                  \item The analysis shows that moderate migration improves load balance across racks, while excessive migration introduces additional overhead that can reduce throughput.
+                  \item This discussion highlights the existence of an optimal migration size that effectively balances load redistribution benefits against migration costs, providing practical guidance for system configuration.
+              \end{itemize}
+          \end{reply}
+\end{enumerate}
+
+\end{document}
